@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://b45h7ge2s2g5o"]
+
+[ext_resource type="Script" path="res://ui/debug_control.gd" id="1_kiu48"]
+[ext_resource type="FontFile" uid="uid://b36r4ra4w2mmq" path="res://fonts/SpaceMono-Regular.ttf" id="2_8lw58"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_svuj1"]
+font = ExtResource("2_8lw58")
+font_size = 12
+
+[node name="DebugControl" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kiu48")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_8lw58")
+label_settings = SubResource("LabelSettings_svuj1")

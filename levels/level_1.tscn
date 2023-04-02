@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6rew60g3sac6"]
+[gd_scene load_steps=10 format=3 uid="uid://b6rew60g3sac6"]
 
 [ext_resource type="Texture2D" uid="uid://bemlw3vvk4uvx" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_packed.png" id="1_sik3i"]
 [ext_resource type="PackedScene" uid="uid://chxsg88018btn" path="res://objects/player/Player.tscn" id="2_18i8o"]
 [ext_resource type="PackedScene" uid="uid://cvmxwq82k8knq" path="res://objects/diamond/diamond.tscn" id="3_qtx2e"]
 [ext_resource type="PackedScene" uid="uid://dtegiikqfok7e" path="res://objects/utils/trigger_spawn.tscn" id="4_uwm1w"]
+[ext_resource type="PackedScene" uid="uid://u8bxe15wfhnp" path="res://objects/pipe/pipe.tscn" id="4_y33uf"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ci7wi"]
 tile_data = PackedInt32Array(0, 917504, 0, 65536, 917504, 1)
@@ -199,12 +200,18 @@ texture = ExtResource("1_sik3i")
 4:3/0 = 0
 4:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:3/0/physics_layer_0/angular_velocity = 0.0
+4:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -6, -4)
+4:3/0/physics_layer_0/polygon_0/one_way = true
 5:3/0 = 0
 5:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 5:3/0/physics_layer_0/angular_velocity = 0.0
+5:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1, -8, -1)
+5:3/0/physics_layer_0/polygon_0/one_way = true
 6:3/0 = 0
 6:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:3/0/physics_layer_0/angular_velocity = 0.0
+6:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 6, -4, -8, -1)
+6:3/0/physics_layer_0/polygon_0/one_way = true
 7:3/0 = 0
 7:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 7:3/0/physics_layer_0/angular_velocity = 0.0
@@ -337,6 +344,7 @@ texture = ExtResource("1_sik3i")
 10:5/0 = 0
 10:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:5/0/physics_layer_0/angular_velocity = 0.0
+10:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 11:5/0 = 0
 11:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 11:5/0/physics_layer_0/angular_velocity = 0.0
@@ -344,9 +352,11 @@ texture = ExtResource("1_sik3i")
 12:5/0 = 0
 12:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 12:5/0/physics_layer_0/angular_velocity = 0.0
+12:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 13:5/0 = 0
 13:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:5/0/physics_layer_0/angular_velocity = 0.0
+13:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:5/0 = 0
 14:5/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:5/0/physics_layer_0/angular_velocity = 0.0
@@ -407,6 +417,7 @@ texture = ExtResource("1_sik3i")
 13:6/0 = 0
 13:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:6/0/physics_layer_0/angular_velocity = 0.0
+13:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:6/0 = 0
 14:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:6/0/physics_layer_0/angular_velocity = 0.0
@@ -467,6 +478,7 @@ texture = ExtResource("1_sik3i")
 13:7/0 = 0
 13:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 13:7/0/physics_layer_0/angular_velocity = 0.0
+13:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 14:7/0 = 0
 14:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 14:7/0/physics_layer_0/angular_velocity = 0.0
@@ -1219,7 +1231,7 @@ metadata/_edit_vertical_guides_ = []
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_7r25t")
 format = 2
-layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 19, 393216, 0, 65547, 262144, 1, 131083, 262144, 2, 12, 327680, 0, 65548, 327680, 1, 131084, 327680, 2, 65549, 393216, 1, 131085, 393216, 2, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 589829, 458752, 12, 524293, 458752, 12, 458757, 458752, 12, 393221, 458752, 12, 327685, 458752, 11, 327686, 524288, 11, 327687, 524288, 11, 327688, 524288, 11, 327689, 524288, 11, 327690, 589824, 11, 524298, 262144, 3, 524299, 327680, 3, 524300, 393216, 3, 458763, 589824, 19)
+layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 19, 393216, 0, 65547, 262144, 1, 131083, 262144, 2, 12, 327680, 0, 65548, 327680, 1, 131084, 327680, 2, 65549, 393216, 1, 131085, 393216, 2, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 524298, 262144, 3, 524299, 327680, 3, 524300, 393216, 3, 458763, 589824, 19)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_18i8o")]
 position = Vector2(16, 216)
@@ -1240,5 +1252,10 @@ position = Vector2(216, 211)
 
 [node name="trigger_spawn" parent="." node_paths=PackedStringArray("player", "spawn_point") instance=ExtResource("4_uwm1w")]
 position = Vector2(232, 320)
-player = NodePath("../CharacterBody2D")
+player = NodePath("")
 spawn_point = NodePath("../SpawnPoint")
+
+[node name="pipe" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_y33uf")]
+position = Vector2(88, 120)
+player = NodePath("../CharacterBody2D")
+travel_speed = 150.0

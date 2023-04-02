@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://u8bxe15wfhnp"]
+
+[ext_resource type="Script" path="res://objects/pipe/pipe.gd" id="1_ibtr8"]
+[ext_resource type="Texture2D" uid="uid://bmmwd061015i1" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0247.png" id="1_numwy"]
+[ext_resource type="Texture2D" uid="uid://dbadbfoaqg7wt" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0228.png" id="2_1f3ds"]
+[ext_resource type="Texture2D" uid="uid://46k0djt1jrxq" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0227.png" id="3_b2rkq"]
+
+[sub_resource type="Curve2D" id="Curve2D_1fsqr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 0, -32, 0, 0, 0, 0, 32, -32, 0, 0, 0, 0, 48, -32, 0, 0, 0, 0, 64, -32, 0, 0, 0, 0, 64, -24)
+}
+point_count = 6
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_notuo"]
+size = Vector2(2, 0.5)
+
+[node name="pipe" type="StaticBody2D"]
+script = ExtResource("1_ibtr8")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1fsqr")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, 40)
+rotates = false
+loop = false
+
+[node name="Sprites" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Tile0247" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 16)
+texture = ExtResource("1_numwy")
+
+[node name="Tile0248" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 32)
+texture = ExtResource("1_numwy")
+
+[node name="Tile0249" type="Sprite2D" parent="Sprites"]
+texture = ExtResource("1_numwy")
+
+[node name="Tile0250" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -16)
+texture = ExtResource("1_numwy")
+
+[node name="Tile0228" type="Sprite2D" parent="Sprites"]
+position = Vector2(16, -32)
+texture = ExtResource("2_1f3ds")
+
+[node name="Tile0230" type="Sprite2D" parent="Sprites"]
+position = Vector2(32, -32)
+texture = ExtResource("2_1f3ds")
+
+[node name="Tile0231" type="Sprite2D" parent="Sprites"]
+position = Vector2(48, -32)
+texture = ExtResource("2_1f3ds")
+
+[node name="Tile0227" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -32)
+texture = ExtResource("3_b2rkq")
+
+[node name="Tile0229" type="Sprite2D" parent="Sprites"]
+position = Vector2(64, -32)
+texture = ExtResource("3_b2rkq")
+flip_h = true
+
+[node name="Enter" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter"]
+light_mask = 4
+position = Vector2(0, 39.75)
+shape = SubResource("RectangleShape2D_notuo")
+debug_color = Color(0.835294, 0.12549, 0, 0.419608)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 4
+polygon = PackedVector2Array(7, 39, -7, 39, -7, -38, 70, -38, 70, -24, 6, -24)
+
+[connection signal="body_entered" from="Enter" to="." method="_on_enter_body_entered"]

@@ -26,6 +26,6 @@ func _physics_process(delta: float) -> void:
 
 func _on_enter_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.reparent(path_follow)
+		body.call_deferred("reparent", path_follow)
 		body.set_physics_process(false)
 		can_travel = true

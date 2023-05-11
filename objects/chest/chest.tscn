@@ -1,0 +1,97 @@
+[gd_scene load_steps=13 format=3 uid="uid://0q3hriduhaqu"]
+
+[ext_resource type="Script" path="res://objects/chest/chest.gd" id="1_nnakm"]
+[ext_resource type="Texture2D" uid="uid://cui5uv7c4qm4p" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0389.png" id="2_x8w67"]
+[ext_resource type="Texture2D" uid="uid://cxpg1re18as77" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0390.png" id="3_v1k6o"]
+[ext_resource type="FontFile" uid="uid://cwprqlc65vxx1" path="res://fonts/Symtext.ttf" id="4_o85jn"]
+[ext_resource type="Texture2D" uid="uid://3u2ulnxdh04x" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0097.png" id="5_4bsru"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chsyj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_x8w67")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_v1k6o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gwsl1"]
+size = Vector2(16, 12)
+
+[sub_resource type="LabelSettings" id="LabelSettings_74xnn"]
+line_spacing = 2.08165e-12
+font = ExtResource("4_o85jn")
+font_size = 12
+
+[sub_resource type="Animation" id="Animation_6qmin"]
+resource_name = "key_modulate"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AreaKey:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.509804), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lj7k1"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yd6me"]
+_data = {
+"RESET": SubResource("Animation_lj7k1"),
+"key_modulate": SubResource("Animation_6qmin")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cgl41"]
+size = Vector2(8, 2)
+
+[node name="chest" type="Area2D"]
+script = ExtResource("1_nnakm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_chsyj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_gwsl1")
+
+[node name="Text" type="Label" parent="."]
+visible = false
+offset_left = -4.0
+offset_top = -30.0
+offset_right = 8.0
+offset_bottom = -4.0
+text = "E"
+label_settings = SubResource("LabelSettings_74xnn")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yd6me")
+}
+
+[node name="AreaKey" type="Area2D" parent="."]
+visible = false
+
+[node name="key" type="Sprite2D" parent="AreaKey"]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = ExtResource("5_4bsru")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaKey"]
+shape = SubResource("RectangleShape2D_cgl41")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="body_entered" from="AreaKey" to="." method="_on_area_key_body_entered"]

@@ -13,7 +13,7 @@ metadata/_edit_vertical_guides_ = []
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_34dw8")
 format = 2
-layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 19, 393216, 0, 65547, 262144, 1, 131083, 262144, 2, 12, 327680, 0, 65548, 327680, 1, 131084, 327680, 2, 65549, 393216, 1, 131085, 393216, 2, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 720925, 1048576, 2, 851993, 1179648, 0, 524297, 262144, 3, 524298, 327680, 3, 524299, 393216, 3, 458767, 720896, 13, 458768, 720896, 13, 458769, 720896, 13, 458770, 720896, 13, 458771, 720896, 13, 458772, 720896, 13, 458766, 655360, 13, 458773, 786432, 13, 589845, 786432, 15, 589844, 720896, 15, 524309, 786432, 14, 589843, 720896, 15, 589842, 720896, 15, 589841, 720896, 15, 589840, 720896, 15, 589839, 720896, 15, 589838, 655360, 15, 524302, 655360, 14, 524303, 720896, 14, 524306, 720896, 14, 524308, 720896, 14, 720896, 589824, 5, 655360, 589824, 5, 589824, 589824, 5, 524288, 589824, 5, 458752, 589824, 5, 393216, 589824, 5, 327680, 589824, 5, 262144, 589824, 5, 196608, 589824, 5, 131072, 589824, 5, 65536, 589824, 4, 786432, 589824, 6, 851972, 1, 65536)
+layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 19, 393216, 0, 65547, 262144, 1, 131083, 262144, 2, 12, 327680, 0, 65548, 327680, 1, 131084, 327680, 2, 65549, 393216, 1, 131085, 393216, 2, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 720925, 1048576, 2, 851993, 1179648, 0, 524297, 262144, 3, 524298, 327680, 3, 524299, 393216, 3, 458767, 720896, 13, 458768, 720896, 13, 458769, 720896, 13, 458770, 720896, 13, 458771, 720896, 13, 458772, 720896, 13, 458766, 655360, 13, 458773, 786432, 13, 589845, 786432, 15, 589844, 720896, 15, 524309, 786432, 14, 589843, 720896, 15, 589842, 720896, 15, 589841, 720896, 15, 589840, 720896, 15, 589839, 720896, 15, 589838, 655360, 15, 524302, 655360, 14, 524303, 720896, 14, 524306, 720896, 14, 524308, 720896, 14, 720896, 589824, 5, 655360, 589824, 5, 589824, 589824, 5, 524288, 589824, 5, 458752, 589824, 5, 393216, 589824, 5, 327680, 589824, 5, 262144, 589824, 5, 196608, 589824, 5, 131072, 589824, 5, 65536, 589824, 4, 786432, 589824, 6, 393231, 1, 65536, 393233, 1, 65536, 393235, 1, 65536, 786454, 1, 131072, 655382, 1, 131072, 327698, 1, 131072, 327696, 1, 131072, 851981, 1, 131072, 786446, 1, 131072, 720911, 1, 131072, 786448, 1, 131072, 262160, 1, 131072, 262162, 1, 131072, 720915, 1, 131072, 851987, 1, 131072)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_18i8o")]
 position = Vector2(16, 216)
@@ -22,6 +22,7 @@ position = Vector2(16, 216)
 position = Vector2(16, 216)
 
 [node name="Diamonds" type="Node2D" parent="."]
+visible = false
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource("3_qtx2e")]
 position = Vector2(232, 211)
@@ -49,4 +50,18 @@ position = Vector2(232, 312)
 [node name="chest" parent="." instance=ExtResource("6_57cq0")]
 position = Vector2(168, 120)
 
+[connection signal="body_entered" from="TileMap/Diamond" to="TileMap/Diamond" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@99369" to="TileMap/@Diamond@99369" method="_on_body_entered" flags=18]
 [connection signal="body_entered" from="TileMap/spike" to="TileMap/spike" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@99370" to="TileMap/@Diamond@99370" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100274" to="TileMap/@Diamond@100274" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100275" to="TileMap/@Diamond@100275" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100276" to="TileMap/@Diamond@100276" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@100277" to="TileMap/@spike@100277" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100278" to="TileMap/@Diamond@100278" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100279" to="TileMap/@Diamond@100279" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@100280" to="TileMap/@spike@100280" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100281" to="TileMap/@Diamond@100281" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100282" to="TileMap/@Diamond@100282" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100283" to="TileMap/@Diamond@100283" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@100284" to="TileMap/@Diamond@100284" method="_on_body_entered" flags=18]

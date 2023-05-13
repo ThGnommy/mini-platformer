@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bu5trawj8koth"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://bu5trawj8koth"]
 
 [ext_resource type="Texture2D" uid="uid://bemlw3vvk4uvx" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_packed.png" id="1_tpgpg"]
 [ext_resource type="PackedScene" uid="uid://dhs4aafen6fsm" path="res://objects/spike/spike.tscn" id="2_ih6s1"]
+[ext_resource type="PackedScene" uid="uid://cvmxwq82k8knq" path="res://objects/diamond/diamond.tscn" id="3_46c2v"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ci7wi"]
 tile_data = PackedInt32Array(0, 917504, 0, 65536, 917504, 1)
@@ -1233,6 +1234,7 @@ texture = ExtResource("1_tpgpg")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_afa68"]
 scenes/1/scene = ExtResource("2_ih6s1")
+scenes/2/scene = ExtResource("3_46c2v")
 
 [resource]
 physics_layer_0/collision_layer = 1

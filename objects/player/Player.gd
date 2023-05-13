@@ -11,6 +11,7 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @export var spawn_point: Marker2D
 
+var tilemap = "res://levels/level_1_tilemap.tres"
 
 func _ready() -> void:
 	animated_sprite.play("idle")
@@ -51,3 +52,6 @@ func flip(vel: float) -> void:
 		animated_sprite.flip_h = true
 	elif vel > 0:
 		animated_sprite.flip_h = false
+
+func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+	print(body_shape_index, local_shape_index)

@@ -8,9 +8,10 @@ extends Node2D
 
 var can_travel: bool = false
 
-# Called when the node enters the scene tree for the first time.
+var violet: Color = Color(0.5, 0.35, 0.5)
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
@@ -23,9 +24,12 @@ func _physics_process(delta: float) -> void:
 			player.reparent(get_parent())
 			get_parent().move_child(player, 1)
 			path_follow.progress_ratio = 0.0
+			player.modulate = Color.WHITE
 
 func _on_enter_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.call_deferred("reparent", path_follow)
 		body.set_physics_process(false)
 		can_travel = true
+		player.modulate = Color.DARK_VIOLET
+		

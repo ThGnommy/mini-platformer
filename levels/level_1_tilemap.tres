@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bu5trawj8koth"]
+[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bu5trawj8koth"]
 
 [ext_resource type="Texture2D" uid="uid://bemlw3vvk4uvx" path="res://kenney_1-bit-platformer-pack/Tilemap/monochrome_tilemap_packed.png" id="1_tpgpg"]
+[ext_resource type="PackedScene" uid="uid://dhs4aafen6fsm" path="res://objects/spike/spike.tscn" id="2_ih6s1"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_ci7wi"]
 tile_data = PackedInt32Array(0, 917504, 0, 65536, 917504, 1)
@@ -1230,6 +1231,9 @@ texture = ExtResource("1_tpgpg")
 19:19/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 19:19/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_afa68"]
+scenes/1/scene = ExtResource("2_ih6s1")
+
 [resource]
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 2
@@ -1237,5 +1241,6 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "spike"
 terrain_set_0/terrain_0/color = Color(0.576471, 0.196078, 0, 1)
 sources/0 = SubResource("TileSetAtlasSource_dgrlh")
+sources/1 = SubResource("TileSetScenesCollectionSource_afa68")
 pattern_0 = SubResource("TileMapPattern_ci7wi")
 pattern_1 = SubResource("TileMapPattern_yux5s")

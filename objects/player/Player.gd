@@ -11,8 +11,6 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @export var spawn_point: Marker2D
 
-var tilemap = "res://levels/level_1_tilemap.tres"
-
 func _ready() -> void:
 	animated_sprite.play("idle")
 
@@ -45,6 +43,9 @@ func _physics_process(delta: float) -> void:
 	# debug text
 	var str = "Player velocity: x: {x} y: {y}".format({"x": velocity.x, "y": roundf(velocity.y)})
 	$Label.set_text(str)
+	
+	if Global.game_over == true:
+		die()
 
 # flip character base on horizontal velocity
 func flip(vel: float) -> void:
@@ -53,5 +54,10 @@ func flip(vel: float) -> void:
 	elif vel > 0:
 		animated_sprite.flip_h = false
 
-func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
-	print(body_shape_index, local_shape_index)
+func die():
+	animated_sprite.play("die")
+	set_physics_process(false)
+	await get_tree().create_timer(1).timeout
+	Global.game_over = false
+	Global.restart_current_scene()
+	

@@ -1278,6 +1278,7 @@ texture = ExtResource("1_tpgpg")
 3:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_afa68"]
+resource_name = "objects"
 scenes/1/scene = ExtResource("2_ih6s1")
 scenes/2/scene = ExtResource("3_46c2v")
 scenes/3/scene = ExtResource("4_o2hk5")

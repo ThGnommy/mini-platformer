@@ -58,6 +58,5 @@ func die():
 	animated_sprite.play("die")
 	set_physics_process(false)
 	await get_tree().create_timer(1).timeout
-	Global.game_over = false
 	Global.restart_current_scene()
 	

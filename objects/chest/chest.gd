@@ -1,7 +1,5 @@
 extends Area2D
 
-@onready var global_vars = get_node("/root/Global")
-
 @onready var letter = $Text
 @onready var animated_sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer
@@ -39,5 +37,6 @@ func key_animation():
 
 func _on_area_key_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		global_vars.player_has_key = true
+		Global.player_has_key = true
+		Global.emit_signal("key_taken")
 		area_key.queue_free()

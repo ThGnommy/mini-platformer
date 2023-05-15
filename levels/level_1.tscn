@@ -1,11 +1,38 @@
-[gd_scene load_steps=7 format=3 uid="uid://b6rew60g3sac6"]
+[gd_scene load_steps=11 format=3 uid="uid://b6rew60g3sac6"]
 
 [ext_resource type="TileSet" uid="uid://bu5trawj8koth" path="res://levels/level_1_tilemap.tres" id="1_34dw8"]
 [ext_resource type="PackedScene" uid="uid://chxsg88018btn" path="res://objects/player/Player.tscn" id="2_18i8o"]
 [ext_resource type="PackedScene" uid="uid://cvmxwq82k8knq" path="res://objects/diamond/diamond.tscn" id="3_qtx2e"]
+[ext_resource type="PackedScene" uid="uid://dhs4aafen6fsm" path="res://objects/spike/spike.tscn" id="3_xphfj"]
+[ext_resource type="PackedScene" uid="uid://7ovg5o0kjlpc" path="res://objects/door/door.tscn" id="4_hx7s5"]
 [ext_resource type="PackedScene" uid="uid://dtegiikqfok7e" path="res://objects/utils/trigger_spawn.tscn" id="4_uwm1w"]
 [ext_resource type="PackedScene" uid="uid://u8bxe15wfhnp" path="res://objects/pipe/pipe.tscn" id="4_y33uf"]
 [ext_resource type="PackedScene" uid="uid://0q3hriduhaqu" path="res://objects/chest/chest.tscn" id="6_57cq0"]
+[ext_resource type="Shader" path="res://shaders/level_1.gdshader" id="7_cnfsf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_f666c"]
+shader = ExtResource("7_cnfsf")
+shader_parameter/overlay = true
+shader_parameter/scanlines_opacity = 0.4
+shader_parameter/scanlines_width = 0.25
+shader_parameter/grille_opacity = 0.3
+shader_parameter/resolution = Vector2(640, 480)
+shader_parameter/pixelate = false
+shader_parameter/roll = false
+shader_parameter/roll_speed = 8.0
+shader_parameter/roll_size = 15.0
+shader_parameter/roll_variation = 1.8
+shader_parameter/distort_intensity = 0.05
+shader_parameter/noise_opacity = 0.2
+shader_parameter/noise_speed = 5.0
+shader_parameter/static_noise_intensity = 0.06
+shader_parameter/aberration = 0.01
+shader_parameter/brightness = 1.4
+shader_parameter/discolor = true
+shader_parameter/warp_amount = 0.0
+shader_parameter/clip_warp = false
+shader_parameter/vignette_intensity = 0.06
+shader_parameter/vignette_opacity = 0.5
 
 [node name="Level1" type="Node2D"]
 metadata/_edit_vertical_guides_ = []
@@ -13,7 +40,60 @@ metadata/_edit_vertical_guides_ = []
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("1_34dw8")
 format = 2
-layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 19, 393216, 0, 65547, 262144, 1, 131083, 262144, 2, 12, 327680, 0, 65548, 327680, 1, 131084, 327680, 2, 65549, 393216, 1, 131085, 393216, 2, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 720925, 1, 196608, 851993, 1179648, 0, 524297, 262144, 3, 524298, 327680, 3, 524299, 393216, 3, 458767, 720896, 13, 458768, 720896, 13, 458769, 720896, 13, 458770, 720896, 13, 458771, 720896, 13, 458772, 720896, 13, 458766, 655360, 13, 458773, 786432, 13, 589845, 786432, 15, 589844, 720896, 15, 524309, 786432, 14, 589843, 720896, 15, 589842, 720896, 15, 589841, 720896, 15, 589840, 720896, 15, 589839, 720896, 15, 589838, 655360, 15, 524302, 655360, 14, 524303, 720896, 14, 524306, 720896, 14, 524308, 720896, 14, 720896, 589824, 5, 655360, 589824, 5, 589824, 589824, 5, 524288, 589824, 5, 458752, 589824, 5, 393216, 589824, 5, 327680, 589824, 5, 262144, 589824, 5, 196608, 589824, 5, 131072, 589824, 5, 65536, 589824, 4, 786432, 589824, 6, 393231, 1, 65536, 393233, 1, 65536, 393235, 1, 65536, 786454, 1, 131072, 655382, 1, 131072, 327698, 1, 131072, 327696, 1, 131072, 851981, 1, 131072, 786446, 1, 131072, 720911, 1, 131072, 786448, 1, 131072, 262160, 1, 131072, 262162, 1, 131072, 720915, 1, 131072, 851987, 1, 131072, 65565, 458752, 4, 131101, 458752, 5, 196637, 458752, 5, 262173, 458752, 5, 327709, 458752, 5, 393245, 458752, 5, 458781, 458752, 5, 524317, 458752, 6)
+layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 720925, 1, 196608, 851993, 1179648, 0, 524297, 262144, 3, 524298, 327680, 3, 524299, 393216, 3, 458767, 720896, 13, 458768, 720896, 13, 458769, 720896, 13, 458770, 720896, 13, 458771, 720896, 13, 458772, 720896, 13, 458766, 655360, 13, 458773, 786432, 13, 589845, 786432, 15, 589844, 720896, 15, 524309, 786432, 14, 589843, 720896, 15, 589842, 720896, 15, 589841, 720896, 15, 589840, 720896, 15, 589839, 720896, 15, 589838, 655360, 15, 524302, 655360, 14, 524303, 720896, 14, 524306, 720896, 14, 524308, 720896, 14, 720896, 589824, 5, 655360, 589824, 5, 589824, 589824, 5, 524288, 589824, 5, 458752, 589824, 5, 393216, 589824, 5, 327680, 589824, 5, 262144, 589824, 5, 196608, 589824, 5, 131072, 589824, 5, 65536, 589824, 4, 786432, 589824, 6, 393231, 1, 65536, 393233, 1, 65536, 393235, 1, 65536, 655382, 1, 131072, 327698, 1, 131072, 327696, 1, 131072, 851981, 1, 131072, 786446, 1, 131072, 720911, 1, 131072, 786448, 1, 131072, 262160, 1, 131072, 262162, 1, 131072, 65565, 458752, 4, 131101, 458752, 5, 196637, 458752, 5, 262173, 458752, 5, 327709, 458752, 5, 393245, 458752, 5, 458781, 458752, 5, 524317, 458752, 6, 720915, 1, 131072, 786451, 1, 131072, 720918, 1, 131072)
+
+[node name="TileMap" type="TileMap" parent="TileMap"]
+tile_set = ExtResource("1_34dw8")
+format = 2
+layer_0/tile_data = PackedInt32Array(917504, 655360, 5, 917505, 720896, 5, 917506, 720896, 5, 917507, 720896, 5, 917508, 720896, 5, 917509, 720896, 5, 917510, 720896, 5, 917516, 720896, 5, 917517, 720896, 5, 917518, 720896, 5, 917519, 720896, 5, 917520, 720896, 5, 917521, 720896, 5, 917522, 720896, 5, 917523, 720896, 5, 917524, 786432, 5, 917528, 655360, 5, 917529, 720896, 5, 917530, 720896, 5, 917531, 720896, 5, 917533, 786432, 6, 851990, 851968, 5, 917526, 851968, 6, 917511, 786432, 5, 917515, 655360, 5, 786461, 786432, 5, 851997, 786432, 6, 786460, 655360, 5, 851996, 655360, 6, 917532, 917504, 8, 851970, 524288, 12, 786436, 262144, 3, 786437, 327680, 3, 786438, 393216, 3, 851973, 851968, 0, 851985, 1179648, 1, 851980, 1179648, 0, 720901, 917504, 4, 720925, 1, 196608, 851993, 1179648, 0, 524297, 262144, 3, 524298, 327680, 3, 524299, 393216, 3, 458767, 720896, 13, 458768, 720896, 13, 458769, 720896, 13, 458770, 720896, 13, 458771, 720896, 13, 458772, 720896, 13, 458766, 655360, 13, 458773, 786432, 13, 589845, 786432, 15, 589844, 720896, 15, 524309, 786432, 14, 589843, 720896, 15, 589842, 720896, 15, 589841, 720896, 15, 589840, 720896, 15, 589839, 720896, 15, 589838, 655360, 15, 524302, 655360, 14, 524303, 720896, 14, 524306, 720896, 14, 524308, 720896, 14, 720896, 589824, 5, 655360, 589824, 5, 589824, 589824, 5, 524288, 589824, 5, 458752, 589824, 5, 393216, 589824, 5, 327680, 589824, 5, 262144, 589824, 5, 196608, 589824, 5, 131072, 589824, 5, 65536, 589824, 4, 786432, 589824, 6, 393231, 1, 65536, 393233, 1, 65536, 393235, 1, 65536, 655382, 1, 131072, 327698, 1, 131072, 327696, 1, 131072, 851981, 1, 131072, 786446, 1, 131072, 720911, 1, 131072, 786448, 1, 131072, 262160, 1, 131072, 262162, 1, 131072, 65565, 458752, 4, 131101, 458752, 5, 196637, 458752, 5, 262173, 458752, 5, 327709, 458752, 5, 393245, 458752, 5, 458781, 458752, 5, 524317, 458752, 6, 720915, 1, 131072, 786451, 1, 131072, 720918, 1, 131072, 13, 196608, 0, 65549, 196608, 1, 131085, 196608, 2, 17, 196608, 0, 65553, 196608, 2)
+
+[node name="Diamond" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(264, 72)
+
+[node name="Diamond23069" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(264, 88)
+
+[node name="Diamond23070" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(264, 200)
+
+[node name="spike" parent="TileMap/TileMap" instance=ExtResource("3_xphfj")]
+position = Vector2(280, 104)
+
+[node name="Diamond23071" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(296, 72)
+
+[node name="Diamond23072" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(296, 88)
+
+[node name="spike23073" parent="TileMap/TileMap" instance=ExtResource("3_xphfj")]
+position = Vector2(312, 104)
+
+[node name="Diamond23074" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(312, 184)
+
+[node name="Diamond23075" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(312, 200)
+
+[node name="Diamond23076" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(360, 168)
+
+[node name="Diamond23077" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(360, 184)
+
+[node name="door" parent="TileMap/TileMap" instance=ExtResource("4_hx7s5")]
+position = Vector2(472, 184)
+
+[node name="Diamond23078" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(216, 216)
+
+[node name="Diamond23079" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(232, 200)
+
+[node name="spike23080" parent="TileMap/TileMap" instance=ExtResource("3_xphfj")]
+position = Vector2(248, 104)
+
+[node name="Diamond23081" parent="TileMap/TileMap" instance=ExtResource("3_qtx2e")]
+position = Vector2(248, 184)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_18i8o")]
 position = Vector2(16, 216)
@@ -49,3 +129,51 @@ position = Vector2(232, 312)
 
 [node name="chest" parent="." instance=ExtResource("6_57cq0")]
 position = Vector2(168, 120)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(240, 120)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Camera2D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera2D/CanvasLayer"]
+material = SubResource("ShaderMaterial_f666c")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35112" to="TileMap/TileMap/@Diamond@35112" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35113" to="TileMap/TileMap/@Diamond@35113" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35114" to="TileMap/TileMap/@Diamond@35114" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@spike@35115" to="TileMap/TileMap/@spike@35115" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35116" to="TileMap/TileMap/@Diamond@35116" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35117" to="TileMap/TileMap/@Diamond@35117" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@spike@35118" to="TileMap/TileMap/@spike@35118" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35119" to="TileMap/TileMap/@Diamond@35119" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35120" to="TileMap/TileMap/@Diamond@35120" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35121" to="TileMap/TileMap/@Diamond@35121" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35122" to="TileMap/TileMap/@Diamond@35122" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@door@35123" to="TileMap/TileMap/@door@35123" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/TileMap/@door@35123" to="TileMap/TileMap/@door@35123" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35124" to="TileMap/TileMap/@Diamond@35124" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35125" to="TileMap/TileMap/@Diamond@35125" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@spike@35126" to="TileMap/TileMap/@spike@35126" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/TileMap/@Diamond@35127" to="TileMap/TileMap/@Diamond@35127" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/Diamond" to="TileMap/Diamond" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35099" to="TileMap/@Diamond@35099" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35100" to="TileMap/@Diamond@35100" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/spike" to="TileMap/spike" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35101" to="TileMap/@Diamond@35101" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35102" to="TileMap/@Diamond@35102" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@35103" to="TileMap/@spike@35103" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35104" to="TileMap/@Diamond@35104" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35105" to="TileMap/@Diamond@35105" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35106" to="TileMap/@Diamond@35106" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35107" to="TileMap/@Diamond@35107" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/door" to="TileMap/door" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/door" to="TileMap/door" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35108" to="TileMap/@Diamond@35108" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35109" to="TileMap/@Diamond@35109" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@35110" to="TileMap/@spike@35110" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@35111" to="TileMap/@Diamond@35111" method="_on_body_entered" flags=18]

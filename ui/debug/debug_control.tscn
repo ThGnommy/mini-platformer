@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://b45h7ge2s2g5o"]
+[gd_scene load_steps=4 format=3]
 
-[ext_resource type="Script" path="res://ui/debug_control.gd" id="1_kiu48"]
+[ext_resource type="Script" path="res://ui/debug/debug_control.gd" id="1_kiu48"]
 [ext_resource type="FontFile" uid="uid://b36r4ra4w2mmq" path="res://fonts/SpaceMono-Regular.ttf" id="2_8lw58"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_svuj1"]

@@ -6,7 +6,7 @@ signal key_taken
 @export var player_has_key = false
 @export var game_over = false
 
-var max_diamonds = 13
+var max_diamonds = 12
 
 var diamonds_count: int = 0:
 	set(new_value):

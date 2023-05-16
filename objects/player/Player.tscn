@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://chxsg88018btn"]
+[gd_scene load_steps=14 format=3 uid="uid://chxsg88018btn"]
 
 [ext_resource type="Texture2D" uid="uid://c15f4t2i6k8vn" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0245.png" id="1_fexmc"]
 [ext_resource type="Script" path="res://objects/player/Player.gd" id="1_rrgy3"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://0m0wqqjs5688" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0242.png" id="6_taj4v"]
 [ext_resource type="Texture2D" uid="uid://7313dsnpv8hx" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0243.png" id="7_bs6i5"]
 [ext_resource type="FontFile" uid="uid://b36r4ra4w2mmq" path="res://fonts/SpaceMono-Regular.ttf" id="9_v07rk"]
+[ext_resource type="Texture2D" uid="uid://b731h4no7fqdr" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0020.png" id="10_hvw0e"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml4mo"]
 animations = [{
@@ -86,3 +87,25 @@ visibility_layer = 14
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_445f8")
 debug_color = Color(0.870588, 0.352941, 0, 0.419608)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 16
+lifetime = 0.3
+speed_scale = 0.5
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 0.5
+texture = ExtResource("10_hvw0e")
+emission_shape = 2
+emission_sphere_radius = 10.0
+gravity = Vector2(2.08165e-12, -980)
+angular_velocity_min = -100.0
+angular_velocity_max = 100.0
+orbit_velocity_min = -0.5
+orbit_velocity_max = 0.5
+damping_max = 5.0
+scale_amount_min = 0.2
+color = Color(1, 1, 1, 0.407843)
+hue_variation_min = -1.0
+hue_variation_max = 0.7

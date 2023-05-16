@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b6rew60g3sac6"]
+[gd_scene load_steps=11 format=3 uid="uid://b6rew60g3sac6"]
 
 [ext_resource type="TileSet" uid="uid://bu5trawj8koth" path="res://levels/level_1_tilemap.tres" id="1_34dw8"]
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_wfeyj"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://u8bxe15wfhnp" path="res://objects/pipe/pipe.tscn" id="4_y33uf"]
 [ext_resource type="PackedScene" uid="uid://0q3hriduhaqu" path="res://objects/chest/chest.tscn" id="6_57cq0"]
 [ext_resource type="Shader" path="res://shaders/level_1.gdshader" id="7_cnfsf"]
+[ext_resource type="PackedScene" uid="uid://dlguyfmbemh5w" path="res://objects/firefly/firefly.tscn" id="9_w453m"]
 [ext_resource type="PackedScene" uid="uid://cuqihdqh4hm4k" path="res://ui/hud.tscn" id="10_pun5x"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f666c"]
@@ -77,3 +78,27 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="firefly" parent="." instance=ExtResource("9_w453m")]
+position = Vector2(208, 8)
+
+[node name="firefly2" parent="." instance=ExtResource("9_w453m")]
+position = Vector2(464, 136)
+
+[connection signal="body_entered" from="TileMap/Diamond" to="TileMap/Diamond" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43983" to="TileMap/@Diamond@43983" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43984" to="TileMap/@Diamond@43984" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/spike" to="TileMap/spike" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43985" to="TileMap/@Diamond@43985" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43986" to="TileMap/@Diamond@43986" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@43987" to="TileMap/@spike@43987" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43988" to="TileMap/@Diamond@43988" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43989" to="TileMap/@Diamond@43989" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43990" to="TileMap/@Diamond@43990" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43991" to="TileMap/@Diamond@43991" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/door" to="TileMap/door" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/door" to="TileMap/door" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43992" to="TileMap/@Diamond@43992" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43993" to="TileMap/@Diamond@43993" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@43994" to="TileMap/@spike@43994" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@43995" to="TileMap/@Diamond@43995" method="_on_body_entered" flags=18]

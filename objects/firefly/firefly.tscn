@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=3 uid="uid://dlguyfmbemh5w"]
+
+[ext_resource type="Script" path="res://objects/firefly/firefly.gd" id="1_h2vtx"]
+[ext_resource type="Texture2D" uid="uid://82bo6oh02x3y" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0326.png" id="1_ornm8"]
+[ext_resource type="Texture2D" uid="uid://b448sjkp5lqtr" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0346.png" id="2_asxbl"]
+[ext_resource type="Curve2D" uid="uid://bshxl4xtplht1" path="res://objects/firefly/curve1.tres" id="2_si6kq"]
+[ext_resource type="Curve2D" uid="uid://birrfv6q4nw26" path="res://objects/firefly/curve2.tres" id="3_cq4nw"]
+[ext_resource type="Curve2D" uid="uid://dgt4d66klu0ml" path="res://objects/firefly/curve3.tres" id="4_sr05b"]
+[ext_resource type="Curve2D" uid="uid://bcg2wxhrdr7cm" path="res://objects/firefly/curve4.tres" id="5_wiq6u"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_68ilq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ornm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_asxbl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 25.0
+}]
+
+[node name="firefly" type="Node2D"]
+script = ExtResource("1_h2vtx")
+curves = Array[Curve2D]([ExtResource("2_si6kq"), ExtResource("3_cq4nw"), ExtResource("4_sr05b"), ExtResource("5_wiq6u")])
+
+[node name="Path2D" type="Path2D" parent="."]
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(32, -32)
+rotation = 1.5708
+rotates = false
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Path2D/PathFollow2D"]
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_68ilq")
+autoplay = "default"
+speed_scale = 5.0

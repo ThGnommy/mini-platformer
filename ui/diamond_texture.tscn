@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ssq1c8q5kjcp"]
+
+[ext_resource type="Texture2D" uid="uid://dus2klolnyxd" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0102.png" id="1_ftnmf"]
+
+[node name="DiamondTexture" type="TextureRect"]
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("1_ftnmf")

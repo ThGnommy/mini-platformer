@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://chxsg88018btn"]
+[gd_scene load_steps=17 format=3 uid="uid://chxsg88018btn"]
 
 [ext_resource type="Texture2D" uid="uid://c15f4t2i6k8vn" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0245.png" id="1_fexmc"]
 [ext_resource type="Script" path="res://objects/player/Player.gd" id="1_rrgy3"]
@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://7313dsnpv8hx" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0243.png" id="7_bs6i5"]
 [ext_resource type="FontFile" uid="uid://b36r4ra4w2mmq" path="res://fonts/SpaceMono-Regular.ttf" id="9_v07rk"]
 [ext_resource type="Texture2D" uid="uid://b731h4no7fqdr" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0020.png" id="10_hvw0e"]
+[ext_resource type="AudioStream" uid="uid://duawl0ehm0337" path="res://audio/jump.wav" id="11_h8r3k"]
+[ext_resource type="AudioStream" uid="uid://b5l1sddbngcfb" path="res://audio/die.wav" id="12_plcca"]
+[ext_resource type="AudioStream" uid="uid://bt3ml54tpy7r2" path="res://audio/win.wav" id="13_qyltq"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ml4mo"]
 animations = [{
@@ -75,6 +78,7 @@ sprite_frames = SubResource("SpriteFrames_ml4mo")
 animation = &"die"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = -36.0
 offset_top = -40.0
 offset_right = 47.0
@@ -109,3 +113,17 @@ scale_amount_min = 0.2
 color = Color(1, 1, 1, 0.407843)
 hue_variation_min = -1.0
 hue_variation_max = 0.7
+
+[node name="jumpSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_h8r3k")
+volume_db = -12.0
+mix_target = 2
+bus = &"Sfx"
+
+[node name="dieSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_plcca")
+bus = &"Die sfx"
+
+[node name="winSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_qyltq")
+bus = &"Sfx"

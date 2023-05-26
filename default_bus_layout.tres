@@ -1,0 +1,45 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://bcwriyjylacp0"]
+
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_p6si0"]
+resource_name = "Chorus"
+voice_count = 4
+voice/3/delay_ms = 12.0
+voice/3/rate_hz = 1.0
+voice/3/depth_ms = 0.0
+voice/3/level_db = 0.0
+voice/3/cutoff_hz = 16000.0
+voice/3/pan = 0.0
+voice/4/delay_ms = 12.0
+voice/4/rate_hz = 1.0
+voice/4/depth_ms = 0.0
+voice/4/level_db = 0.0
+voice/4/cutoff_hz = 16000.0
+voice/4/pan = 0.0
+
+[sub_resource type="AudioEffectDelay" id="AudioEffectDelay_77pr5"]
+resource_name = "Delay"
+dry = 0.5
+
+[resource]
+bus/1/name = &"Music"
+bus/1/solo = false
+bus/1/mute = false
+bus/1/bypass_fx = false
+bus/1/volume_db = -3.01823
+bus/1/send = &"Master"
+bus/2/name = &"Sfx"
+bus/2/solo = false
+bus/2/mute = false
+bus/2/bypass_fx = false
+bus/2/volume_db = 0.0
+bus/2/send = &"Master"
+bus/3/name = &"Die sfx"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 0.0
+bus/3/send = &"Sfx"
+bus/3/effect/0/effect = SubResource("AudioEffectChorus_p6si0")
+bus/3/effect/0/enabled = true
+bus/3/effect/1/effect = SubResource("AudioEffectDelay_77pr5")
+bus/3/effect/1/enabled = true

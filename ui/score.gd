@@ -12,6 +12,7 @@ extends Control
 func _ready() -> void:
 	Global.connect("diamond_update", _on_diamond_update)
 	Global.connect("key_taken", _on_key_taken)
+	Global.connect("victory", _on_victory)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -24,3 +25,6 @@ func _on_key_taken():
 	var has_key = "1" if Global.player_has_key else "0"
 	#var x = "coat" if raining else "t-shirt"
 	label_key.text = "{x} / {y}".format({"x": has_key, "y": "1"})
+
+func _on_victory():
+	hide()

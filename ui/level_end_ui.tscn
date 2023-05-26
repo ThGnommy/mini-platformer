@@ -1,0 +1,130 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhqogmgnscw5q"]
+
+[ext_resource type="Theme" uid="uid://b47616lafixmh" path="res://ui/main_menu_theme.tres" id="1_1l3ey"]
+[ext_resource type="Script" path="res://ui/level_end_ui.gd" id="2_hyyxd"]
+[ext_resource type="Texture2D" uid="uid://dus2klolnyxd" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0102.png" id="2_qviru"]
+[ext_resource type="FontFile" uid="uid://cwprqlc65vxx1" path="res://fonts/Symtext.ttf" id="3_7m1pk"]
+[ext_resource type="Texture2D" uid="uid://boipv2dqukack" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0240.png" id="4_667pn"]
+[ext_resource type="Texture2D" uid="uid://c15f4t2i6k8vn" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0245.png" id="5_cjqvh"]
+[ext_resource type="AudioStream" uid="uid://bvpjjhqe33fex" path="res://audio/pickup.wav" id="7_do0t0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxx2n"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+border_blend = true
+
+[sub_resource type="LabelSettings" id="LabelSettings_terda"]
+font = ExtResource("3_7m1pk")
+font_size = 12
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xh61v"]
+frames = 2
+frame_0/texture = ExtResource("4_667pn")
+frame_0/duration = 0.2
+frame_1/texture = ExtResource("5_cjqvh")
+frame_1/duration = 0.2
+
+[node name="End Screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_1l3ey")
+script = ExtResource("2_hyyxd")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_dxx2n")
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer3/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Level Complete!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel/VBoxContainer3"]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Panel/VBoxContainer3/VBoxContainer2"]
+layout_mode = 2
+alignment = 1
+
+[node name="Diamond" type="TextureRect" parent="Panel/VBoxContainer3/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("2_qviru")
+expand_mode = 2
+
+[node name="diamonds" type="Label" parent="Panel/VBoxContainer3/VBoxContainer2/HBoxContainer2"]
+layout_mode = 2
+text = "0 / 12"
+label_settings = SubResource("LabelSettings_terda")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer3"]
+layout_mode = 2
+size_flags_vertical = 8
+alignment = 1
+
+[node name="Retry" type="Button" parent="Panel/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Retry"
+
+[node name="Quit" type="Button" parent="Panel/VBoxContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Quit
+"
+
+[node name="player" type="TextureRect" parent="Panel"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = SubResource("AnimatedTexture_xh61v")
+
+[node name="diamond_point" type="Control" parent="Panel"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 148.0
+offset_top = 38.0
+offset_right = 156.0
+offset_bottom = 46.0
+metadata/_edit_use_anchors_ = true
+
+[node name="pickupSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_do0t0")
+volume_db = -6.0
+bus = &"Sfx"
+
+[connection signal="pressed" from="Panel/VBoxContainer3/HBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer3/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

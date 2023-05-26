@@ -1,7 +1,5 @@
 extends Area2D
 
-@onready var global_vars = get_node("/root/Global")
-
 @onready var label = $Text
 @onready var animated_sprite = $AnimatedSprite2D
 
@@ -23,10 +21,13 @@ func _on_body_exited(body: Node2D) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	
-	if !global_vars.player_has_key: return
+	if !Global.player_has_key: return
 
 	if event.is_action_pressed("interact") and is_in_area and !door_is_open:
 		animated_sprite.play("default")
+	elif event.is_action_pressed("interact") and is_in_area and door_is_open:
+		print("end")
+		Global.emit_signal("victory")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	door_is_open = true

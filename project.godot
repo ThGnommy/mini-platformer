@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="Simple Platformer"
-run/main_scene="res://levels/level_1.tscn"
+run/main_scene="res://ui/main_menu_scene.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-PlayerSpawn="*res://autoloads/PlayerSpawn.gd"
 Global="*res://autoloads/Global.gd"
+Music="*res://autoloads/Music.tscn"
 
 [display]
 

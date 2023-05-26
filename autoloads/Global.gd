@@ -3,6 +3,8 @@ extends Node
 signal diamond_update(value)
 signal key_taken
 
+signal victory
+
 @export var player_has_key = false
 @export var game_over = false
 

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://u8bxe15wfhnp"]
+[gd_scene load_steps=9 format=3 uid="uid://u8bxe15wfhnp"]
 
 [ext_resource type="Script" path="res://objects/pipe/pipe.gd" id="1_ibtr8"]
 [ext_resource type="Texture2D" uid="uid://bmmwd061015i1" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0247.png" id="1_numwy"]
 [ext_resource type="Texture2D" uid="uid://dbadbfoaqg7wt" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0228.png" id="2_1f3ds"]
 [ext_resource type="Texture2D" uid="uid://46k0djt1jrxq" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0227.png" id="3_b2rkq"]
+[ext_resource type="AudioStream" uid="uid://cmshhrcs34gc7" path="res://audio/enterPipe.wav" id="5_j3a4g"]
+[ext_resource type="AudioStream" uid="uid://dorv0dxye82td" path="res://audio/exitPipe.wav" id="6_mdjtj"]
 
 [sub_resource type="Curve2D" id="Curve2D_1fsqr"]
 _data = {
@@ -76,5 +78,17 @@ debug_color = Color(0.835294, 0.12549, 0, 0.419608)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 light_mask = 4
 polygon = PackedVector2Array(7, 39, -7, 39, -7, -38, 70, -38, 70, -24, 6, -24)
+
+[node name="enterPipeSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_j3a4g")
+volume_db = -6.0
+mix_target = 2
+bus = &"Sfx"
+
+[node name="exitPipeSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_mdjtj")
+volume_db = -6.0
+mix_target = 2
+bus = &"Sfx"
 
 [connection signal="body_entered" from="Enter" to="." method="_on_enter_body_entered"]

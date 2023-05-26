@@ -5,13 +5,13 @@ class_name Player
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 @onready var animated_sprite = $AnimatedSprite2D
 @export var spawn_point: Marker2D
 
 func _ready() -> void:
+	Global.connect("victory", _on_victory)
 	animated_sprite.play("idle")
 
 func _physics_process(delta: float) -> void:
@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$jumpSfx.play()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -56,7 +57,13 @@ func flip(vel: float) -> void:
 
 func die():
 	animated_sprite.play("die")
+	$dieSfx.play()
 	set_physics_process(false)
 	await get_tree().create_timer(1).timeout
 	Global.restart_current_scene()
-	
+
+func _on_victory():
+	$winSfx.play()
+	set_physics_process(false)
+	var tween = create_tween()
+	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1.0)

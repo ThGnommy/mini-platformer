@@ -20,16 +20,23 @@ func _physics_process(delta: float) -> void:
 		if path_follow.progress_ratio == 1.0:
 			player.velocity = Vector2.ZERO
 			player.set_physics_process(true)
+			
+			# scale player up
+			var tween = create_tween()
+			tween.tween_property(player, "scale", Vector2(1, 1), 0.3)
+			
 			can_travel = false
 			player.reparent(get_parent())
 			get_parent().move_child(player, 1)
 			path_follow.progress_ratio = 0.0
-			player.modulate = Color.WHITE
+			$exitPipeSfx.play()
 
 func _on_enter_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.call_deferred("reparent", path_follow)
 		body.set_physics_process(false)
 		can_travel = true
-		player.modulate = Color.DARK_VIOLET
-		
+		# scale player down
+		var tween = create_tween()
+		tween.tween_property(player, "scale", Vector2(0.5, 0.5), 0.3)
+		$enterPipeSfx.play()

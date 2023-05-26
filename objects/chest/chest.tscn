@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://0q3hriduhaqu"]
+[gd_scene load_steps=14 format=3 uid="uid://0q3hriduhaqu"]
 
 [ext_resource type="Script" path="res://objects/chest/chest.gd" id="1_nnakm"]
 [ext_resource type="Texture2D" uid="uid://cui5uv7c4qm4p" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0389.png" id="2_x8w67"]
 [ext_resource type="Texture2D" uid="uid://cxpg1re18as77" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0390.png" id="3_v1k6o"]
 [ext_resource type="FontFile" uid="uid://cwprqlc65vxx1" path="res://fonts/Symtext.ttf" id="4_o85jn"]
 [ext_resource type="Texture2D" uid="uid://3u2ulnxdh04x" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0097.png" id="5_4bsru"]
+[ext_resource type="AudioStream" uid="uid://coxxls6syj71b" path="res://audio/pickupKey.wav" id="6_r2lwh"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_chsyj"]
 animations = [{
@@ -92,6 +93,9 @@ texture = ExtResource("5_4bsru")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaKey"]
 shape = SubResource("RectangleShape2D_cgl41")
+
+[node name="pickupKeySfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_r2lwh")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

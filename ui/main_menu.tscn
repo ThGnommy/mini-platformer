@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://bswhrewsmws8l"]
+
+[ext_resource type="FontFile" uid="uid://cwprqlc65vxx1" path="res://fonts/Symtext.ttf" id="1_jc4rw"]
+[ext_resource type="Script" path="res://ui/main_menu.gd" id="1_un0bt"]
+[ext_resource type="Theme" uid="uid://b47616lafixmh" path="res://ui/main_menu_theme.tres" id="1_wk4py"]
+[ext_resource type="PackedScene" uid="uid://b6rew60g3sac6" path="res://levels/level_1.tscn" id="2_4uo5x"]
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_un0bt")
+level_scene = ExtResource("2_4uo5x")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="PanelContainer"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Title" type="VBoxContainer" parent="PanelContainer/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -41.0
+offset_right = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="PanelContainer/Panel/Title"]
+layout_mode = 2
+theme = ExtResource("1_wk4py")
+theme_override_font_sizes/font_size = 25
+text = "Simple Platformer"
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer/Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_right = 27.5
+offset_bottom = 68.0
+grow_horizontal = 2
+
+[node name="Play" type="Button" parent="PanelContainer/Panel/Buttons"]
+layout_mode = 2
+theme = ExtResource("1_wk4py")
+theme_override_fonts/font = ExtResource("1_jc4rw")
+text = "Play"
+
+[node name="Quit" type="Button" parent="PanelContainer/Panel/Buttons"]
+layout_mode = 2
+theme = ExtResource("1_wk4py")
+text = "Quit"
+
+[connection signal="pressed" from="PanelContainer/Panel/Buttons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="PanelContainer/Panel/Buttons/Quit" to="." method="_on_quit_pressed"]

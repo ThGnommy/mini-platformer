@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://b47616lafixmh"]
+
+[ext_resource type="FontFile" uid="uid://cwprqlc65vxx1" path="res://fonts/Symtext.ttf" id="1_d5fdc"]
+
+[resource]
+default_font = ExtResource("1_d5fdc")
+Button/colors/font_color = Color(1, 1, 1, 1)

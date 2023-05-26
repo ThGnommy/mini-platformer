@@ -39,4 +39,5 @@ func _on_area_key_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.player_has_key = true
 		Global.emit_signal("key_taken")
+		$pickupKeySfx.play()
 		area_key.queue_free()

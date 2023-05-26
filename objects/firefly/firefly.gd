@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 		path_follow.progress += travel_speed * delta
 		if path_follow.progress_ratio > 0.99:
 			get_random_curve()
-			print("end curve", path2d.curve)
 
 func get_random_curve():
 	path2d.curve = curves.pick_random()

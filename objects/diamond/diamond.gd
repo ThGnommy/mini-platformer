@@ -13,6 +13,7 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
+		$pickupSfx.play()
 		var tween = create_tween()
 		tween.tween_property(self, "scale", Vector2(0,0), .3)
 		tween.parallel().tween_property(self, "global_position", Vector2(global_position.x, global_position.y + -10), .3)

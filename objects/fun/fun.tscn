@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcd120k0f6877"]
+
+[ext_resource type="Texture2D" uid="uid://bc47d8b5guudh" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0369.png" id="1_165l3"]
+[ext_resource type="Texture2D" uid="uid://drfcui6bcg1pp" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0370.png" id="2_7pj6a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3ogc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_165l3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7pj6a")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="fun" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s3ogc")
+autoplay = "default"
+frame_progress = 0.365555

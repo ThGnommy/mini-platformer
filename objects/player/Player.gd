@@ -1,18 +1,22 @@
 extends CharacterBody2D
 
-class_name Player
-
 const SPEED = 100.0
 const JUMP_VELOCITY = -300.0
 
 var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+@onready var jumpSfx = $jumpSfx
+
 @onready var animated_sprite = $AnimatedSprite2D
 @export var spawn_point: Marker2D
+
+@export var enemy: CharacterBody2D
 
 func _ready() -> void:
 	Global.connect("victory", _on_victory)
 	animated_sprite.play("idle")
+
+	enemy.connect("player_jump_on_top", _on_player_jump_on_enemies)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -21,8 +25,7 @@ func _physics_process(delta: float) -> void:
 
 	# Handle Jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		$jumpSfx.play()
+		jump()
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -39,6 +42,7 @@ func _physics_process(delta: float) -> void:
 	if velocity.y != 0:
 		animated_sprite.play("jump")
 
+
 	move_and_slide()
 	
 	# debug text
@@ -47,6 +51,10 @@ func _physics_process(delta: float) -> void:
 	
 	if Global.game_over == true:
 		die()
+
+func jump():
+	velocity.y = JUMP_VELOCITY
+	jumpSfx.play()
 
 # flip character base on horizontal velocity
 func flip(vel: float) -> void:
@@ -67,3 +75,7 @@ func _on_victory():
 	set_physics_process(false)
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1.0)
+
+
+func _on_player_jump_on_enemies():
+	jump()

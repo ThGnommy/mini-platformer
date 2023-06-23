@@ -1288,8 +1288,8 @@ scenes/3/scene = ExtResource("4_o2hk5")
 scenes/4/scene = ExtResource("5_baba0")
 
 [resource]
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 2
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_dgrlh")
 sources/1 = SubResource("TileSetScenesCollectionSource_afa68")
 pattern_0 = SubResource("TileMapPattern_ci7wi")

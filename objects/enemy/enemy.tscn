@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=3 uid="uid://btbnknff3ux5d"]
+
+[ext_resource type="Texture2D" uid="uid://brmoln0rbrn6j" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0344.png" id="1_fgdwy"]
+[ext_resource type="Script" path="res://objects/enemy/enemy.gd" id="1_kj7mq"]
+[ext_resource type="Texture2D" uid="uid://dcgm6w6g6i3os" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0340.png" id="2_bbfp8"]
+[ext_resource type="Texture2D" uid="uid://b7n2t1t4662u4" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0341.png" id="3_xrh1e"]
+[ext_resource type="Texture2D" uid="uid://cr0oodoor6aha" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0342.png" id="4_oeqx0"]
+[ext_resource type="Texture2D" uid="uid://c0q5a1c15417g" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0343.png" id="5_56pgv"]
+[ext_resource type="AudioStream" uid="uid://dq6jrhd204xd5" path="res://audio/enemy_death.wav" id="7_ff0xp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmjdi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fgdwy")
+}],
+"loop": true,
+"name": &"die",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bbfp8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xrh1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_oeqx0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_56pgv")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_066rv"]
+size = Vector2(8, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5ktvq"]
+size = Vector2(10, 0.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ul1vu"]
+size = Vector2(10, 10.25)
+
+[node name="enemy" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 8
+collision_mask = 5
+script = ExtResource("1_kj7mq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tmjdi")
+animation = &"move"
+autoplay = "move"
+frame_progress = 0.727637
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2.98023e-08, 2.5)
+shape = SubResource("RectangleShape2D_066rv")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+position = Vector2(-5, 5)
+exclude_parent = false
+target_position = Vector2(2.08165e-12, 10)
+collision_mask = 4
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+position = Vector2(5, 5)
+exclude_parent = false
+target_position = Vector2(2.08165e-12, 10)
+collision_mask = 4
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_5ktvq")
+debug_color = Color(0, 0.643137, 0.32549, 0.419608)
+
+[node name="AreaDie" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDie"]
+position = Vector2(0, 2.875)
+shape = SubResource("RectangleShape2D_ul1vu")
+debug_color = Color(1, 0, 0.14902, 0.419608)
+
+[node name="DieSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ff0xp")
+volume_db = -6.0
+mix_target = 2
+bus = &"Sfx"
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AreaDie" to="." method="_on_area_die_body_entered"]

@@ -20,7 +20,7 @@ shape = SubResource("RectangleShape2D_s8636")
 
 [node name="pickupSfx" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_bkuws")
-volume_db = -6.0
+volume_db = -8.0
 mix_target = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

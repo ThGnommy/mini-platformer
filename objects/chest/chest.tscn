@@ -27,7 +27,7 @@ size = Vector2(16, 12)
 [sub_resource type="LabelSettings" id="LabelSettings_74xnn"]
 line_spacing = 2.08165e-12
 font = ExtResource("4_o85jn")
-font_size = 12
+font_size = 8
 
 [sub_resource type="Animation" id="Animation_lj7k1"]
 length = 0.001
@@ -73,7 +73,7 @@ offset_left = -4.0
 offset_top = -30.0
 offset_right = 8.0
 offset_bottom = -4.0
-text = "E"
+text = "open"
 label_settings = SubResource("LabelSettings_74xnn")
 horizontal_alignment = 1
 vertical_alignment = 1

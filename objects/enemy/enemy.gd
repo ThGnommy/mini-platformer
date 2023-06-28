@@ -9,12 +9,23 @@ var direction: Vector2
 var right_movement: Vector2 = Vector2.RIGHT
 var left_movement: Vector2 = Vector2.LEFT
 
+
+enum Directions {
+	RIGHT, 
+	LEFT
+}
+
+@export var directions := Directions.RIGHT
+
 signal player_jump_on_top
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = left_movement
-	
+	if directions == Directions.RIGHT:
+		direction = right_movement
+	elif directions == Directions.LEFT:
+		direction = left_movement
+
 func _physics_process(delta: float) -> void:
 	if direction: 
 		velocity.x = direction.x * speed

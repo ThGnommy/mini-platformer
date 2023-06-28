@@ -87,5 +87,20 @@ mouse_filter = 2
 [node name="enemy" parent="." instance=ExtResource("11_3w200")]
 position = Vector2(304, 216)
 
-[node name="enemy2" parent="." instance=ExtResource("11_3w200")]
-position = Vector2(87, 184)
+[connection signal="body_entered" from="TileMap/Diamond" to="TileMap/Diamond" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46931" to="TileMap/@Diamond@46931" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46932" to="TileMap/@Diamond@46932" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/spike" to="TileMap/spike" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46933" to="TileMap/@Diamond@46933" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46934" to="TileMap/@Diamond@46934" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@46935" to="TileMap/@spike@46935" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46936" to="TileMap/@Diamond@46936" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46937" to="TileMap/@Diamond@46937" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46938" to="TileMap/@Diamond@46938" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46939" to="TileMap/@Diamond@46939" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/door" to="TileMap/door" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="TileMap/door" to="TileMap/door" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46940" to="TileMap/@Diamond@46940" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46941" to="TileMap/@Diamond@46941" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@spike@46942" to="TileMap/@spike@46942" method="_on_body_entered" flags=18]
+[connection signal="body_entered" from="TileMap/@Diamond@46943" to="TileMap/@Diamond@46943" method="_on_body_entered" flags=18]

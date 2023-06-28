@@ -37,7 +37,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_066rv"]
-size = Vector2(8, 11)
+size = Vector2(8, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5ktvq"]
 size = Vector2(10, 0.5)
@@ -57,7 +57,7 @@ autoplay = "move"
 frame_progress = 0.727637
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.98023e-08, 2.5)
+position = Vector2(-2.98023e-08, 2)
 shape = SubResource("RectangleShape2D_066rv")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]

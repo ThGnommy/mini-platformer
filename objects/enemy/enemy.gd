@@ -11,7 +11,6 @@ var left_movement: Vector2 = Vector2.LEFT
 
 signal player_jump_on_top
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	direction = left_movement
@@ -34,12 +33,18 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		anim_sprite.play("die")
+		
+		$Area2D.set_deferred("monitorable", false)
+		$Area2D.set_deferred("monitoring", false)
+		$CollisionShape2D.set_deferred("disabled", true)
+		$AreaDie/CollisionShape2D.set_deferred("disabled", true)
+		
 		emit_signal("player_jump_on_top")
 		$DieSFX.play()
 		speed = 0
-		$AreaDie.monitoring = false
 		await get_tree().create_timer(1).timeout
 		queue_free()
+
 func _on_area_die_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		Global.game_over = true

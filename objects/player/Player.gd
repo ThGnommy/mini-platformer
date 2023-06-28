@@ -10,13 +10,10 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite = $AnimatedSprite2D
 @export var spawn_point: Marker2D
 
-@export var enemy: CharacterBody2D
 
 func _ready() -> void:
 	Global.connect("victory", _on_victory)
 	animated_sprite.play("idle")
-
-	enemy.connect("player_jump_on_top", _on_player_jump_on_enemies)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

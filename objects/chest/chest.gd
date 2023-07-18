@@ -40,4 +40,5 @@ func _on_area_key_body_entered(body: Node2D) -> void:
 		Global.player_has_key = true
 		Global.emit_signal("key_taken")
 		$pickupKeySfx.play()
+		anim_player.call_deferred("stop")
 		area_key.queue_free()

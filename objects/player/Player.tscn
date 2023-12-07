@@ -67,7 +67,7 @@ font_size = 8
 font_color = Color(0, 0.552941, 0.94902, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_445f8"]
-size = Vector2(8, 6)
+size = Vector2(6, 6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ton5l"]
 size = Vector2(8, 6)

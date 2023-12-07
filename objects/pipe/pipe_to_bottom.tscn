@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://cdbla1bxjcato"]
+
+[ext_resource type="Script" path="res://objects/pipe/pipe.gd" id="1_s6q2e"]
+[ext_resource type="Texture2D" uid="uid://bmmwd061015i1" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0247.png" id="2_jy2nc"]
+[ext_resource type="Texture2D" uid="uid://46k0djt1jrxq" path="res://kenney_1-bit-platformer-pack/Tiles/Transparent/tile_0227.png" id="4_gx28s"]
+[ext_resource type="AudioStream" uid="uid://cmshhrcs34gc7" path="res://audio/enterPipe.wav" id="5_wbhjx"]
+[ext_resource type="AudioStream" uid="uid://dorv0dxye82td" path="res://audio/exitPipe.wav" id="6_oqbbm"]
+
+[sub_resource type="Curve2D" id="Curve2D_bh36u"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, -16, 0, 0, 0, 0, 0, 40, 0, 0, 0, 0, 48, 40, 0, 0, 0, 0, 48, 48, 0, 0, 0, 0, 48, 48)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_notuo"]
+size = Vector2(2, 0.5)
+
+[node name="pipe" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_s6q2e")
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_bh36u")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+position = Vector2(0, -16)
+rotates = false
+loop = false
+
+[node name="Sprites" type="Node2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="Tile0247" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, -8)
+texture = ExtResource("2_jy2nc")
+
+[node name="Tile0248" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 8)
+texture = ExtResource("2_jy2nc")
+
+[node name="Tile0249" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 24)
+texture = ExtResource("2_jy2nc")
+
+[node name="Tile0250" type="Sprite2D" parent="Sprites"]
+position = Vector2(32, 40)
+rotation = -1.5708
+texture = ExtResource("2_jy2nc")
+
+[node name="Tile0252" type="Sprite2D" parent="Sprites"]
+position = Vector2(16, 40)
+rotation = 1.5708
+texture = ExtResource("2_jy2nc")
+
+[node name="Tile0227" type="Sprite2D" parent="Sprites"]
+position = Vector2(0, 40)
+rotation = -1.5708
+texture = ExtResource("4_gx28s")
+
+[node name="Tile0228" type="Sprite2D" parent="Sprites"]
+position = Vector2(48, 40)
+rotation = 1.5708
+texture = ExtResource("4_gx28s")
+
+[node name="Enter" type="Area2D" parent="."]
+position = Vector2(0, -56)
+collision_layer = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enter"]
+light_mask = 4
+z_index = 2
+position = Vector2(0, 39.75)
+shape = SubResource("RectangleShape2D_notuo")
+debug_color = Color(0.835294, 0.12549, 0, 0.419608)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+light_mask = 4
+position = Vector2(13.3466, 18.6042)
+scale = Vector2(0.177557, 0.16276)
+polygon = PackedVector2Array(-120.224, -212.608, -120.224, 180.608, 240.224, 180.608, 240.224, 82.304, -30.112, 82.304, -30.112, -212.608)
+
+[node name="enterPipeSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wbhjx")
+volume_db = -6.0
+mix_target = 2
+bus = &"Sfx"
+
+[node name="exitPipeSfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_oqbbm")
+volume_db = -6.0
+mix_target = 2
+bus = &"Sfx"
+
+[connection signal="body_entered" from="Enter" to="." method="_on_enter_body_entered"]

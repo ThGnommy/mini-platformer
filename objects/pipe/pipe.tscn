@@ -17,6 +17,7 @@ point_count = 6
 size = Vector2(2, 0.5)
 
 [node name="pipe" type="StaticBody2D"]
+collision_layer = 4
 script = ExtResource("1_ibtr8")
 
 [node name="Path2D" type="Path2D" parent="."]

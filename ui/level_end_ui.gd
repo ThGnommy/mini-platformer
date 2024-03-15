@@ -17,6 +17,9 @@ func _process(delta: float) -> void:
 
 func _on_victory(): 
 	show()
+	
+	$Panel/VBoxContainer3/HBoxContainer/Retry.grab_focus()
+	
 	for d in Global.diamonds_count:
 		var n = d + 1
 		_instantiate_diamond(n)

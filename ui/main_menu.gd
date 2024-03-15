@@ -10,3 +10,8 @@ func _on_play_pressed() -> void:
 
 func _ready() -> void:
 	$PanelContainer/Panel/Buttons/Play.grab_focus()
+	pass
+
+func _on_play_gui_input(event):
+	if Input.is_action_just_pressed("UI_Select"):
+		get_tree().change_scene_to_packed(level_scene)

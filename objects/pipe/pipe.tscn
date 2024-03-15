@@ -68,7 +68,9 @@ texture = ExtResource("3_b2rkq")
 flip_h = true
 
 [node name="Enter" type="Area2D" parent="."]
+position = Vector2(0, 1)
 collision_layer = 4
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Enter"]
 light_mask = 4

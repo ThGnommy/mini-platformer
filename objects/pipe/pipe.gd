@@ -10,10 +10,6 @@ var can_travel: bool = false
 
 var violet: Color = Color(0.5, 0.35, 0.5)
 
-func _ready() -> void:
-	pass
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if can_travel:
 		path_follow.progress += travel_speed * delta
@@ -23,7 +19,7 @@ func _physics_process(delta: float) -> void:
 			
 			# scale player up
 			var tween = create_tween()
-			tween.tween_property(player, "scale", Vector2(1, 1), 0.3)
+			tween.tween_property(player, "scale", Vector2(1, 1), 0.1)
 			
 			can_travel = false
 			player.reparent(get_parent())

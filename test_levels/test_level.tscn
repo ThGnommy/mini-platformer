@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=4 uid="uid://yplinpx14u8i"]
+
+[ext_resource type="TileSet" uid="uid://bu5trawj8koth" path="res://levels/level_1_tilemap.tres" id="1_oow7q"]
+[ext_resource type="PackedScene" uid="uid://chxsg88018btn" path="res://objects/player/Player.tscn" id="2_kgwom"]
+[ext_resource type="PackedScene" uid="uid://btbnknff3ux5d" path="res://objects/enemy/enemy.tscn" id="3_lcgfq"]
+[ext_resource type="PackedScene" uid="uid://dtegiikqfok7e" path="res://objects/utils/trigger_spawn.tscn" id="4_bdi5p"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAwAAAAKAAUAAAABAAwAAAALAAUAAAACAAwAAAAMAAUAAAADAAwAAAAKAAUAAAAEAAwAAAALAAUAAAAFAAwAAAAMAAUAAAAJAAwAAAAKAAUAAAAKAAwAAAALAAUAAAALAAwAAAAMAAUAAAAMAAwAAAAKAAUAAAANAAwAAAALAAUAAAAOAAwAAAAMAAUAAAAPAAwAAAAKAAUAAAAQAAwAAAALAAUAAAARAAwAAAAMAAUAAAAUAAwAAAAKAAUAAAAVAAwAAAALAAUAAAAWAAwAAAAMAAUAAAAXAAwAAAAKAAUAAAAYAAwAAAALAAUAAAAZAAwAAAAMAAUAAAA=")
+tile_set = ExtResource("1_oow7q")
+
+[node name="Player" parent="." instance=ExtResource("2_kgwom")]
+position = Vector2(16, 184)
+
+[node name="enemy" parent="." instance=ExtResource("3_lcgfq")]
+position = Vector2(152, 184)
+
+[node name="enemy2" parent="." instance=ExtResource("3_lcgfq")]
+position = Vector2(280, 184)
+directions = 1
+
+[node name="trigger_spawn" parent="." instance=ExtResource("4_bdi5p")]
+position = Vector2(224, 264)

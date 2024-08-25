@@ -89,7 +89,7 @@ offset_bottom = -5.0
 label_settings = SubResource("LabelSettings_rwdkn")
 autowrap_mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Player"]]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_445f8")
 debug_color = Color(0.870588, 0.352941, 0, 0.419608)
@@ -130,11 +130,17 @@ bus = &"Die sfx"
 stream = ExtResource("13_qyltq")
 bus = &"Sfx"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["Player"]]
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["Player"]]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_ton5l")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 8)
+collision_mask = 256
+collide_with_areas = true
+collide_with_bodies = false
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -7,7 +7,7 @@ extends Area2D
 
 var is_in_area = false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if animated_sprite.get_frame() == 1:
 		letter.hide()
 

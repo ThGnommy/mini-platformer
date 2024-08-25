@@ -14,11 +14,8 @@ func _ready() -> void:
 	Global.connect("key_taken", _on_key_taken)
 	Global.connect("victory", _on_victory)
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
-func _on_diamond_update(diamond_count: int): 
+func _on_diamond_update(): 
 	label_diamonds.text = "{x} / {y}".format({"x": Global.diamonds_count, "y": Global.max_diamonds})
 
 func _on_key_taken():

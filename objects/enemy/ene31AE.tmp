@@ -96,3 +96,4 @@ bus = &"Sfx"
 
 [connection signal="body_entered" from="AreaDeath" to="." method="_on_area_death_body_entered"]
 [connection signal="body_entered" from="AreaKiller" to="." method="_on_area_killer_body_entered"]
+[connection signal="body_entered" from="AreaKiller" to="." method="_on_area_die_body_entered"]

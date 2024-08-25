@@ -10,11 +10,7 @@ const diamond = preload("res://ui/diamond_texture.tscn")
 func _ready() -> void:
 	Global.connect("victory", _on_victory)
 	hide()
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
+	
 func _on_victory(): 
 	show()
 	
@@ -26,7 +22,7 @@ func _on_victory():
 		await get_tree().create_timer(0.3).timeout
 
 func _instantiate_diamond(d):
-	var offset = 10
+	const offset = 10
 	var diamond_instance = diamond.instantiate()
 	panel.add_child(diamond_instance)
 	var player_texture_pos = player_texture.get_screen_position()

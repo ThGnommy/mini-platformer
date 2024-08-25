@@ -38,16 +38,13 @@ func _physics_process(delta: float) -> void:
 
 	if velocity.y != 0:
 		animated_sprite.play("jump")
-
-
-	move_and_slide()
 	
-	# debug text
-	var str = "Player velocity: x: {x} y: {y}".format({"x": velocity.x, "y": roundf(velocity.y)})
-	$Label.set_text(str)
+	move_and_slide()
 	
 	if Global.game_over == true:
 		die()
+		
+	raycast_jump()
 
 func jump():
 	velocity.y = JUMP_VELOCITY
@@ -73,6 +70,6 @@ func _on_victory():
 	var tween = create_tween()
 	tween.tween_property(self, "modulate", Color.TRANSPARENT, 1.0)
 
-
-func _on_player_jump_on_enemies():
-	jump()
+func raycast_jump():
+	if $RayCast2D.is_colliding():
+		jump()

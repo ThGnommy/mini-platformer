@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://co53ycfde5cpw"]
+[gd_scene load_steps=5 format=3 uid="uid://co53ycfde5cpw"]
 
+[ext_resource type="Script" path="res://ui/level_selection.gd" id="1_7h6pr"]
 [ext_resource type="Theme" uid="uid://b47616lafixmh" path="res://ui/main_menu_theme.tres" id="1_eer0w"]
+[ext_resource type="PackedScene" uid="uid://b6rew60g3sac6" path="res://levels/level_1.tscn" id="2_m7lis"]
+[ext_resource type="PackedScene" uid="uid://bk2e7dhdisenl" path="res://levels/level_2.tscn" id="3_rv2ve"]
 
 [node name="level_selection" type="Control"]
 layout_mode = 3
@@ -9,6 +12,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_7h6pr")
+level_scene = Array[PackedScene]([ExtResource("2_m7lis"), ExtResource("3_rv2ve"), null, null, null])
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -19,7 +24,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_eer0w")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,33 +32,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "SELECT A LEVEL"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 10
 
-[node name="Button" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button" type="Button" parent="Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 text = "level 1"
 
-[node name="Button2" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button2" type="Button" parent="Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "level 2"
 
-[node name="Button3" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button3" type="Button" parent="Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "level 3"
 
-[node name="Button4" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button4" type="Button" parent="Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "level 4"
 
-[node name="Button5" type="Button" parent="Panel/VBoxContainer/HBoxContainer"]
+[node name="Button5" type="Button" parent="Panel/VBoxContainer2/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "level 5"

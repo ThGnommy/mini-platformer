@@ -19,3 +19,6 @@ func restart_current_scene():
 	game_over = false
 	set("diamonds_count", 0)
 	get_tree().reload_current_scene()
+
+func set_game_over(value: bool):
+	game_over = value

@@ -10,7 +10,13 @@ func _on_play_pressed() -> void:
 
 func _ready() -> void:
 	$PanelContainer/Panel/Buttons/Play.grab_focus()
-	pass
+	
+	var SGC = SaveGameAsJson.new()
+	
+	if SGC.save_file_exists():
+		SGC.load_savegame()
+	else:
+		SGC.write_savegame()
 
 func _on_play_gui_input(event):
 	if Input.is_action_just_pressed("UI_Select"):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://b6rew60g3sac6"]
+[gd_scene load_steps=14 format=4 uid="uid://b6rew60g3sac6"]
 
 [ext_resource type="TileSet" uid="uid://bu5trawj8koth" path="res://levels/level_1_tilemap.tres" id="1_34dw8"]
 [ext_resource type="Script" path="res://levels/level_1.gd" id="1_wfeyj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" path="res://shaders/level_1.gdshader" id="7_cnfsf"]
 [ext_resource type="PackedScene" uid="uid://dlguyfmbemh5w" path="res://objects/firefly/firefly.tscn" id="9_w453m"]
 [ext_resource type="PackedScene" uid="uid://dhqogmgnscw5q" path="res://ui/level_end_ui.tscn" id="10_lro6o"]
+[ext_resource type="PackedScene" uid="uid://bk2e7dhdisenl" path="res://levels/level_2.tscn" id="10_ncyeg"]
 [ext_resource type="PackedScene" uid="uid://cuqihdqh4hm4k" path="res://ui/hud.tscn" id="10_pun5x"]
 [ext_resource type="PackedScene" uid="uid://btbnknff3ux5d" path="res://objects/enemy/enemy.tscn" id="11_3w200"]
 
@@ -78,6 +79,7 @@ position = Vector2(464, 136)
 
 [node name="End Screen" parent="CanvasLayer" instance=ExtResource("10_lro6o")]
 visible = false
+next_level = ExtResource("10_ncyeg")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_f666c")

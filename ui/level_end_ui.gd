@@ -1,5 +1,6 @@
 extends Control
 
+@export var next_level: PackedScene
 @onready var player_texture = $Panel/player
 @onready var diamond_texture = $Panel/diamond_point
 @onready var panel = $Panel
@@ -13,8 +14,7 @@ func _ready() -> void:
 	
 func _on_victory(): 
 	show()
-	
-	$Panel/VBoxContainer3/HBoxContainer/Retry.grab_focus()
+	$Panel/VBoxContainer3/HBoxContainer/VBoxContainer/NextLevel.grab_focus()
 	
 	for d in Global.diamonds_count:
 		var n = d + 1
@@ -43,9 +43,9 @@ func update_score(d):
 func _play_pickup_sfx() -> void:
 	$pickupSfx.play()
 
-func _on_quit_pressed() -> void:
-	get_tree().quit()
-
-
 func _on_retry_pressed() -> void:
 	Global.restart_current_scene()
+
+
+func _on_next_level_pressed() -> void:
+	get_tree().change_scene_to_packed(next_level)

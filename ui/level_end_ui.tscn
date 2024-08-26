@@ -95,14 +95,16 @@ layout_mode = 2
 size_flags_vertical = 8
 alignment = 1
 
-[node name="Retry" type="Button" parent="Panel/VBoxContainer3/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer3/HBoxContainer"]
 layout_mode = 2
-text = "Retry"
 
-[node name="Quit" type="Button" parent="Panel/VBoxContainer3/HBoxContainer"]
+[node name="NextLevel" type="Button" parent="Panel/VBoxContainer3/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit
-"
+text = "next level"
+
+[node name="MainMenu" type="Button" parent="Panel/VBoxContainer3/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "main menu"
 
 [node name="player" type="TextureRect" parent="Panel"]
 layout_mode = 0
@@ -126,5 +128,4 @@ stream = ExtResource("7_do0t0")
 volume_db = -6.0
 bus = &"Sfx"
 
-[connection signal="pressed" from="Panel/VBoxContainer3/HBoxContainer/Retry" to="." method="_on_retry_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer3/HBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer3/HBoxContainer/VBoxContainer/MainMenu" to="." method="_on_retry_pressed"]

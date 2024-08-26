@@ -1,7 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://bk2e7dhdisenl"]
+[gd_scene load_steps=12 format=4 uid="uid://bk2e7dhdisenl"]
 
-[ext_resource type="Script" path="res://levels/level_2.gd" id="1_sprkk"]
 [ext_resource type="TileSet" uid="uid://bu5trawj8koth" path="res://levels/level_1_tilemap.tres" id="1_tjohf"]
+[ext_resource type="Script" path="res://objects/firefly/firefly.gd" id="1_wi3kc"]
 [ext_resource type="PackedScene" uid="uid://chxsg88018btn" path="res://objects/player/Player.tscn" id="2_llm87"]
 [ext_resource type="PackedScene" uid="uid://cdbla1bxjcato" path="res://objects/pipe/pipe_to_bottom.tscn" id="3_mles8"]
 [ext_resource type="PackedScene" uid="uid://dtegiikqfok7e" path="res://objects/utils/trigger_spawn.tscn" id="4_uox8g"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dhqogmgnscw5q" path="res://ui/level_end_ui.tscn" id="7_0l40f"]
 [ext_resource type="PackedScene" uid="uid://cuqihdqh4hm4k" path="res://ui/hud.tscn" id="7_rct7a"]
 [ext_resource type="Shader" path="res://shaders/level_1.gdshader" id="9_tb8p4"]
+[ext_resource type="PackedScene" uid="uid://dlguyfmbemh5w" path="res://objects/firefly/firefly.tscn" id="10_rmd0i"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ijdjm"]
 shader = ExtResource("9_tb8p4")
@@ -35,14 +36,14 @@ shader_parameter/vignette_intensity = 0.06
 shader_parameter/vignette_opacity = 0.5
 
 [node name="level_2" type="Node2D"]
-script = ExtResource("1_sprkk")
+script = ExtResource("1_wi3kc")
 
 [node name="TileMap" type="TileMapLayer" parent="."]
 tile_set = ExtResource("1_tjohf")
 
 [node name="Layer0" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true
-tile_map_data = PackedByteArray("AAABAA0AAAALAAUAAAACAA0AAAALAAUAAAADAA0AAAALAAUAAAAEAA0AAAALAAUAAAAFAA0AAAALAAUAAAAGAA0AAAALAAUAAAAHAA0AAAAMAAUAAAAAAA0AAAAKAAUAAAAAAA4AAAAKAAYAAAAHAA4AAAAMAAYAAAADAAwAAAAIAAwAAAATAAEAAAAHAAUAAAATAAIAAAAHAAUAAAATAAMAAAAHAAUAAAATAAQAAAAHAAUAAAATAAUAAAAHAAUAAAAUAAUAAAAJAAUAAAAUAAQAAAAJAAUAAAAUAAMAAAAJAAUAAAAUAAIAAAAJAAUAAAAUAAEAAAAJAAUAAAATAAAAAAAHAAQAAAAUAAAAAAAJAAQAAAATAAYAAAAHAAYAAAAUAAYAAAAJAAYAAAACAA4AAAALAA4AAAAEAA8AAAALAA8AAAAAAA8AAAAKAA8AAAABAA8AAAALAA8AAAACAA8AAAALAA8AAAADAA8AAAALAA8AAAAFAA8AAAALAA8AAAAGAA8AAAALAA8AAAAHAA8AAAAMAA8AAAAFAA4AAAALAA4AAAATAAgAAAAHAAQAAAAUAAgAAAAJAAQAAAAUAAkAAAAJAAUAAAAUAAoAAAAJAAUAAAAUAAsAAAAJAAUAAAAUAAwAAAAJAAUAAAAUAA0AAAAJAAUAAAAUAA4AAAAJAAYAAAATAA4AAAAHAAYAAAATAA0AAAAHAAUAAAATAAwAAAAHAAUAAAATAAsAAAAHAAUAAAATAAoAAAAHAAUAAAATAAkAAAAHAAUAAAAJAAsAAAANAAUAAAAJAAwAAAANAAcAAAALAAsAAAANAAcAAAALAAoAAAANAAUAAAANAAoAAAANAAcAAAANAAkAAAANAAUAAAALAAcAAAAGAAMAAAAKAAcAAAAFAAMAAAAJAAcAAAAFAAMAAAAIAAcAAAAFAAMAAAAHAAcAAAAEAAMAAAAHAAwAAQAAAAAAAwA=")
+tile_map_data = PackedByteArray("AAABAA0AAAALAAUAAAACAA0AAAALAAUAAAADAA0AAAALAAUAAAAEAA0AAAALAAUAAAAFAA0AAAALAAUAAAAGAA0AAAALAAUAAAAHAA0AAAAMAAUAAAAAAA0AAAAKAAUAAAAAAA4AAAAKAAYAAAAHAA4AAAAMAAYAAAADAAwAAAAIAAwAAAATAAEAAAAHAAUAAAATAAIAAAAHAAUAAAATAAMAAAAHAAUAAAATAAQAAAAHAAUAAAATAAUAAAAHAAUAAAAUAAUAAAAJAAUAAAAUAAQAAAAJAAUAAAAUAAMAAAAJAAUAAAAUAAIAAAAJAAUAAAAUAAEAAAAJAAUAAAATAAAAAAAHAAQAAAAUAAAAAAAJAAQAAAATAAYAAAAHAAYAAAAUAAYAAAAJAAYAAAACAA4AAAALAA4AAAAEAA8AAAALAA8AAAAAAA8AAAAKAA8AAAABAA8AAAALAA8AAAACAA8AAAALAA8AAAADAA8AAAALAA8AAAAFAA8AAAALAA8AAAAGAA8AAAALAA8AAAAHAA8AAAAMAA8AAAAFAA4AAAALAA4AAAATAAgAAAAHAAQAAAAUAAgAAAAJAAQAAAAUAAkAAAAJAAUAAAAUAAoAAAAJAAUAAAAUAAsAAAAJAAUAAAAUAAwAAAAJAAUAAAAUAA0AAAAJAAUAAAAUAA4AAAAJAAYAAAATAA4AAAAHAAYAAAATAA0AAAAHAAUAAAATAAwAAAAHAAUAAAATAAsAAAAHAAUAAAATAAoAAAAHAAUAAAATAAkAAAAHAAUAAAAJAAsAAAANAAUAAAAJAAwAAAANAAcAAAALAAsAAAANAAcAAAALAAoAAAANAAUAAAANAAoAAAANAAcAAAANAAkAAAANAAUAAAARAAUAAAALAAYAAAALAAgAAAAGAAQAAAAKAAgAAAAFAAQAAAAJAAgAAAAFAAQAAAAIAAgAAAAFAAQAAAAHAAgAAAAEAAQAAAAHAAUAAAAGAAQAAAADAAUAAAAEAAQAAAAEAAUAAAAFAAQAAAAFAAUAAAAFAAQAAAAGAAUAAAAFAAQAAAAKAAMAAAADAAQAAAAMAAMAAAADAAQAAAAOAAMAAAADAAQAAAAQAAMAAAADAAQAAAA=")
 tile_set = ExtResource("1_tjohf")
 
 [node name="Player" parent="." instance=ExtResource("2_llm87")]
@@ -53,7 +54,7 @@ position = Vector2(296, 80)
 player = NodePath("../Player")
 
 [node name="trigger_spawn" parent="." instance=ExtResource("4_uox8g")]
-position = Vector2(216, 264)
+position = Vector2(216, 280)
 
 [node name="chest" parent="." instance=ExtResource("5_ogwy5")]
 position = Vector2(96, 200)
@@ -70,6 +71,13 @@ material = SubResource("ShaderMaterial_ijdjm")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -72.0
+offset_top = 24.0
+offset_right = -72.0
+offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="firefly" parent="." instance=ExtResource("10_rmd0i")]
+position = Vector2(112, 136)

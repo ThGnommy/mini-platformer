@@ -7,8 +7,6 @@ extends Node2D
 var start_fly = false
 
 func _ready() -> void:
-	randomize()
-
 	path2d.set_curve(curves.pick_random())
 	var rnd_number = randf_range(0.5, 5.0)
 	await get_tree().create_timer(rnd_number).timeout
@@ -20,6 +18,6 @@ func _process(delta: float) -> void:
 		if path_follow.progress_ratio > 0.99:
 			get_random_curve()
 
-func get_random_curve():
+func get_random_curve() -> void:
 	path2d.set_curve(curves.pick_random())
 	path_follow.progress_ratio = 0.0
